@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     console.log("use effect");
-    getStageAndManifest("test").then((data) => {
+    getStageAndManifest("test2").then((data) => {
       console.log(data.manifest[data.position]);
       setManifest(data.manifest[data.position]);
     }).catch((err) => {
@@ -47,14 +47,14 @@ function App() {
 }
 
 function displayStageForManifest(manifest) {
-  switch (manifest.type) {
+  switch (manifest.stage_type) {
     case "Video":
       return (
         <VideoStage />
       )
     case "Text":
       return (
-        <TextStage />
+        <TextStage manifest={manifest} />
       )
     default:
       return (
