@@ -8,19 +8,25 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {getStageAndManifest} from './networking/NetworkManager';
 
+export let group_id = "test2";
+
 function App() {
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     console.log("use effect");
-    getStageAndManifest("test2").then((data) => {
+    populateScreen();
+  }, []);
+
+  function populateScreen(){
+    getStageAndManifest().then((data) => {
       console.log(data.manifest[data.position]);
       setManifest(data.manifest[data.position]);
     }).catch((err) => {
       setError(err);
     });
-  }, []);
+  }
 
   if (error !== null) {
     return (
@@ -38,7 +44,7 @@ function App() {
   }else {
     return (
       <div>
-        <Header />
+        <Header populateScreen={populateScreen}/>
         {displayStageForManifest(manifest)}
         <Footer />
       </div>
