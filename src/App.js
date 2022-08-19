@@ -56,7 +56,7 @@ function displayStageForManifest(manifest) {
   switch (manifest.stage_type) {
     case "Video":
       return (
-        <VideoStage />
+        <VideoStage manifest={manifest} />
       )
     case "Text":
       return (

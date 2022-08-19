@@ -1,9 +1,20 @@
 import '../App.css';
+import GenericTexts from './groups/GenericTexts';
 
-function VideoStage() {
+function VideoStage(props) {
+  const { manifest } = props;
+
   return (
     <div className="App">
-      <p>Video stage</p>
+      <GenericTexts manifest={manifest}/>
+
+      <iframe
+        src={"https://www.youtube.com/embed/"+manifest.video_id}
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="video"
+      />
     </div>
   );
 }

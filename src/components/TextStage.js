@@ -1,11 +1,11 @@
 import '../App.css';
+import GenericTexts from './groups/GenericTexts';
 
 function TextStage(props) {
+  const { manifest } = props;
   return (
     <div className="App">
-      <h1>{props.manifest.headline}</h1>
-      <h2>{props.manifest.subtitle}</h2>
-      <p>{props.manifest.body}</p>
+      <GenericTexts manifest={manifest}/>
     </div>
   );
 }
