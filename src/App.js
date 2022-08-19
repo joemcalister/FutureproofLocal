@@ -1,11 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import {useEffect, useState} from 'react';
 import VideoStage from './components/VideoStage';
 import LoadingStage from './components/LoadingStage';
 import TextStage from './components/TextStage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import TimeBar from './components/TimeBar';
+
 import {getStageAndManifest} from './networking/NetworkManager';
 
 export let group_id = "test2";
@@ -46,6 +48,11 @@ function App() {
       <div>
         <Header populateScreen={populateScreen}/>
         {displayStageForManifest(manifest)}
+
+        {/* Display timer only if there is one present for this screen */}
+        {manifest.timer != undefined &&
+          <TimeBar time={manifest.timer} />
+        }
         <Footer />
       </div>
     )

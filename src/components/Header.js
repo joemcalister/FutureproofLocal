@@ -1,4 +1,4 @@
-import '../App.css';
+import '../css/App.css';
 import { updatePosition } from '../networking/NetworkManager';
 import { internalPositionCount } from '../App';
 

@@ -1,4 +1,4 @@
-import '../App.css';
+import '../css/App.css';
 import GenericTexts from './groups/GenericTexts';
 
 function VideoStage(props) {
@@ -7,7 +7,6 @@ function VideoStage(props) {
   return (
     <div className="App">
       <GenericTexts manifest={manifest}/>
-
       <iframe
         src={"https://www.youtube.com/embed/"+manifest.video_id}
         frameborder="0"

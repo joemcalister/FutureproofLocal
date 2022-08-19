@@ -1,4 +1,4 @@
-import '../../App.css';
+import '../../css/App.css';
 
 function GenericTexts(props) {
     const { manifest } = props;
