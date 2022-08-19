@@ -21,6 +21,7 @@ function Header(props) {
 
   return (
     <div>
+      Debug: 
       <button onClick={goBackwards}>Backwards</button>
       <button onClick={goForwards}>Forwards</button>
     </div>

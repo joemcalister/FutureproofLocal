@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TimeBar from './components/TimeBar';
 
-import {getStageAndManifest} from './networking/NetworkManager';
+import {getStageAndManifest, updateToNewIndex} from './networking/NetworkManager';
 
 export let group_id = "test2";
 
@@ -53,6 +53,10 @@ function App() {
         {manifest.timer != undefined &&
           <TimeBar time={manifest.timer} />
         }
+
+        {/* Move on to another stage */}
+        <button onClick={() => updateToNewIndex(manifest.move_on, populateScreen)}>Move on</button>
+
         <Footer />
       </div>
     )

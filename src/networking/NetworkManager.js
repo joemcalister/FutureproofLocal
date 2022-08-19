@@ -23,3 +23,30 @@ export function updatePosition(direction) {
         .catch((err) => reject(err));
     });
 }
+
+export function skipToIndex(index) {
+    return new Promise((resolve, reject) => {
+        fetch(`http://localhost:4000/${group_id}/updateIndex`, {
+            method: "POST",
+            body: JSON.stringify({
+                "index": index
+            }),
+            headers: {"content-type": "application/json"},
+        })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+}
+
+export function updateToNewIndex(index, populateScreen) {
+    return new Promise((resolve, reject) => {
+        if (index.includes("+")) {
+            updatePosition(parseInt(index)).then(() => populateScreen());
+        }else if (index.includes("-")) {
+            updatePosition(index).then(() => populateScreen());
+        }else {
+            skipToIndex(index).then(() => populateScreen());
+        }
+    })
+}
