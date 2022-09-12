@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import VideoStage from './components/VideoStage';
 import LoadingStage from './components/LoadingStage';
 import TextStage from './components/TextStage';
+import SliderStage from './components/SliderStage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TimeBar from './components/TimeBar';
@@ -72,6 +73,10 @@ function displayStageForManifest(manifest) {
     case "Text":
       return (
         <TextStage manifest={manifest} />
+      )
+    case "Slider":
+      return (
+        <SliderStage manifest={manifest} />
       )
     default:
       return (

@@ -50,3 +50,34 @@ export function updateToNewIndex(index, populateScreen) {
         }
     })
 }
+
+export function getValueForKey(key) {
+    return new Promise((resolve, reject) => {
+        fetch(`http://localhost:4000/${group_id}/getValue`, {
+            method: "POST",
+            body: JSON.stringify({
+                "key": key
+            }),
+            headers: {"content-type": "application/json"},
+        })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+}
+
+export function submitValue(value, key, completion) {
+    return new Promise((resolve, reject) => {
+        fetch(`http://localhost:4000/${group_id}/submitValue`, {
+            method: "POST",
+            body: JSON.stringify({
+                "value": value, 
+                "key": key
+            }),
+            headers: {"content-type": "application/json"},
+        })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+}
